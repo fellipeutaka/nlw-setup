@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../../../.github/ERD.svg"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Habit {
+  id        String   @id
+  title     String
+  createdAt DateTime @map("created_at")
+
+  dayHabits DayHabit[]
+  weekDays  HabitWeekDays[]
+
+  @@map("habits")
+}
+
+model HabitWeekDays {
+  id      String @id
+  habitId String @map("habit_id")
+  weekDay Int    @map("week_day")
+
+  habit Habit @relation(fields: [habitId], references: [id])
+
+  @@unique([habitId, weekDay])
+  @@map("habit_week_days")
+}
+
+model Day {
+  id   String   @id
+  date DateTime
+
+  dayHabits DayHabit[]
+
+  @@index([date])
+  @@map("days")
+}
+
+model DayHabit {
+  id String @id
+
+  dayId   String @map("day_id")
+  habitId String @map("habit_id")
+
+  day   Day   @relation(fields: [dayId], references: [id])
+  habit Habit @relation(fields: [habitId], references: [id])
+
+  @@unique([dayId, habitId])
+  @@map("day_habits")
+}
