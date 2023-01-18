@@ -96,7 +96,9 @@ To access the layout use [Figma][figma].
 4. Push to original branch:`git push origin <project_name> / <local>`
 5. Create the pull request. Or, see the GitHub documentation on [how to create a pull request][pr].
 
-## 📝 License This project is under the MIT license. See the [LICENSE](https://github.com/fellipeutaka/nlw-setup/blob/main/LICENSE) for details.
+## 📝 License
+
+This project is under the MIT license. See the [LICENSE](https://github.com/fellipeutaka/nlw-setup/blob/main/LICENSE) for details.
 
 Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/fellipeutaka/)
 
