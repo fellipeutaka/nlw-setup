@@ -9,7 +9,7 @@ const createJestConfig = nextJest({
 });
 
 const config: Config = {
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: "<rootDir>/",
   }),

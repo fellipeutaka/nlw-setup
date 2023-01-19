@@ -14,6 +14,10 @@
     "test": "turbo run test",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "zod": "^3.20.2"
+  },
   "devDependencies": {
     "commitizen": "^4.2.6",
     "inquirer": "8",

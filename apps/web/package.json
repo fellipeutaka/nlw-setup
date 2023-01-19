@@ -11,8 +11,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@next/font": "13.1.2",
-    "next": "^13.1.1",
+    "@radix-ui/react-slot": "^1.0.1",
+    "clsx": "^1.2.1",
+    "next": "12.3.0",
+    "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -24,8 +26,12 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@types/testing-library__jest-dom": "^5.14.5",
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
     "eslint-config-custom": "workspace:*",
     "jest-environment-jsdom": "^29.3.1",
+    "postcss": "^8.4.21",
+    "tailwind-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   }
 }

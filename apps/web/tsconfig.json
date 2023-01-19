@@ -6,6 +6,12 @@
     "baseUrl": ".",
     "paths": {
       "@web/*": ["./src/*"]
-    }
+    },
+    "allowJs": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   }
 }
