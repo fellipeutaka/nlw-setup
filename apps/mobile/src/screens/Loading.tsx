@@ -2,33 +2,9 @@ import { View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
 import { MotiView, MotiProps } from "moti";
+import { zinc, violet } from "tailwindcss/colors";
 
 import { Square } from "@mobile/components/ui/Square";
-
-function Squares() {
-  return (
-    <View className="flex-row gap-2.5 mb-8">
-      <MotiView {...upAnimation}>
-        <Square bgColor="#1b1818" borderColor="#27272A" />
-      </MotiView>
-      <MotiView {...downAnimation}>
-        <Square bgColor="#4C1D95" borderColor="#6D28D9" />
-      </MotiView>
-      <MotiView {...upAnimation}>
-        <Square bgColor="#5B21B6" borderColor="#7C3AED" />
-      </MotiView>
-      <MotiView {...downAnimation}>
-        <Square bgColor="#6D28D9" borderColor="#8B5CF6" />
-      </MotiView>
-      <MotiView {...upAnimation}>
-        <Square bgColor="#7C3AED" borderColor="#A78BFA" />
-      </MotiView>
-      <MotiView {...downAnimation}>
-        <Square bgColor="#8B5CF6" borderColor="#C4B5FD" />
-      </MotiView>
-    </View>
-  );
-}
 
 function OneStepEveryDayTextSvg() {
   return (
@@ -72,7 +48,26 @@ const downAnimation = {
 export function Loading() {
   return (
     <View className="flex-1 justify-center items-center bg-black">
-      <Squares />
+      <View className="flex-row gap-2.5 mb-8">
+        <MotiView {...upAnimation}>
+          <Square bgColor={zinc[900]} borderColor={zinc[800]} />
+        </MotiView>
+        <MotiView {...downAnimation}>
+          <Square bgColor={violet[900]} borderColor={violet[700]} />
+        </MotiView>
+        <MotiView {...upAnimation}>
+          <Square bgColor={violet[800]} borderColor={violet[600]} />
+        </MotiView>
+        <MotiView {...downAnimation}>
+          <Square bgColor={violet[700]} borderColor={violet[500]} />
+        </MotiView>
+        <MotiView {...upAnimation}>
+          <Square bgColor={violet[600]} borderColor={violet[400]} />
+        </MotiView>
+        <MotiView {...downAnimation}>
+          <Square bgColor={violet[500]} borderColor={violet[300]} />
+        </MotiView>
+      </View>
       <OneStepEveryDayTextSvg />
     </View>
   );

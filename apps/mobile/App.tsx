@@ -12,6 +12,7 @@ import {
   Inter_800ExtraBold,
   Inter_900Black,
 } from "@expo-google-fonts/inter";
+import { StatusBar } from "expo-status-bar";
 
 import { Home } from "@mobile/screens/Home";
 import { Loading } from "@mobile/screens/Loading";

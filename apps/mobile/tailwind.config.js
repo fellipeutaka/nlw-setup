@@ -1,7 +1,6 @@
-const { config } = require("tailwind-config-custom");
-
+/** @type {import("tailwindcss").Config} */
 module.exports = {
-  ...config,
+  content: ["./src/{pages,screens,components}/**/*.tsx"],
   theme: {
     extend: {
       fontFamily: {
@@ -17,4 +16,5 @@ module.exports = {
       },
     },
   },
+  plugins: [],
 };

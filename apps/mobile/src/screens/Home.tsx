@@ -1,12 +1,13 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
-import { StatusBar } from "expo-status-bar";
+import { CalendarGraph } from "@mobile/components/ui/CalendarGraph";
+import { Header } from "@mobile/components/ui/Header";
 
 export function Home() {
   return (
-    <View className="flex-1 justify-center items-center bg-black">
-      <Text className="text-white text-4xl font-bold">Hello World!</Text>
-      <StatusBar style="auto" />
+    <View className="flex-1 items-center bg-black px-8 py-28">
+      <Header />
+      <CalendarGraph />
     </View>
   );
 }
