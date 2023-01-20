@@ -1,7 +1,8 @@
 import { ZodError } from "zod";
 
+import { InMemoryHabitsRepository } from "@server/test/in-memory-repositories/habits-repository";
+
 import { Habit } from "../entities/habit";
-import { InMemoryHabitsRepository } from "../repositories/in-memory-habits-repository";
 import { CreateHabit } from "./create-habit";
 
 describe("Create habit", () => {

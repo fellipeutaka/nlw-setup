@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 import { randomUUID } from "node:crypto";
 
-import { Replace } from "../utils/Replace";
+import { Replace } from "@server/src/utils/replace";
+
 import { WeekDay } from "./weekDay";
 
 type HabitProps = {

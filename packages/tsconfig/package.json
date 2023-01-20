@@ -5,7 +5,7 @@
   "files": [
     "base.json",
     "nextjs.json",
-    "fastify.json",
+    "nest.json",
     "expo.json"
   ]
 }

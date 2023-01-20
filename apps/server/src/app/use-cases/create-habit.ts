@@ -1,3 +1,4 @@
+import { Injectable } from "@nestjs/common";
 import { z } from "zod";
 
 import { Habit } from "../entities/habit";
@@ -9,6 +10,7 @@ type CreateHabitRequest = {
   weekDays: number[];
 };
 
+@Injectable()
 export class CreateHabit {
   constructor(private readonly habitsRepository: HabitsRepository) {}
 

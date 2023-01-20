@@ -19,8 +19,9 @@ const thirdHabit = {
 };
 
 async function run() {
-  await prisma.habit.deleteMany();
+  await prisma.habitWeekDays.deleteMany();
   await prisma.day.deleteMany();
+  await prisma.habit.deleteMany();
 
   /**
    * Create habits

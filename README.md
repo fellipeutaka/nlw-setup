@@ -75,7 +75,7 @@ This project was developed with the following technologies:
 
 - [TypeScript][ts]
 - [Node.js][node]
-- [Fastify][fastify]
+- [Nest][nest]
 - [Prisma][prisma]
 - [PostgreSQL][postgresql]
 - [React][react]
@@ -105,7 +105,7 @@ Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/
 [figma]: https://www.figma.com/file/wRUFakZUUw46TwyrsHY6qC/Habits-(i)-(Community)?node-id=6%3A343&t=7MSUditkFuVZM6er-0
 [pr]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
 [node]: https://nodejs.org/
-[fastify]: https://www.fastify.io/
+[nest]: https://nestjs.com/
 [prisma]: https://www.prisma.io/
 [postgresql]: https://www.postgresql.org/
 [ts]: https://www.typescriptlang.org/
