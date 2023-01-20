@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsup src",
+    "predev": "prisma generate",
     "dev": "tsx watch src/server.ts",
     "start:prod": "node dist/server.js",
     "format": "prettier --write \"**/*.{js,json,ts,tsx,md}\"",
