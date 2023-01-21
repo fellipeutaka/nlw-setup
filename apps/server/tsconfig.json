@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/nest.json",
+  "extends": "tsconfig/fastify.json",
   "compilerOptions": {
     "outDir": "./dist",
     "baseUrl": ".",

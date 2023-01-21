@@ -13,8 +13,6 @@
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "noFallthroughCasesInSwitch": false
   }
 }
