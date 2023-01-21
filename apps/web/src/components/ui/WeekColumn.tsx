@@ -1,6 +1,4 @@
-import { getWeekDays } from "@web/utils/getWeekDays";
-
-const weekDays = getWeekDays();
+import { weekDays } from "@web/constants/weekDays";
 
 export function WeekColumn() {
   return (
