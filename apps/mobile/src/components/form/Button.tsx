@@ -2,16 +2,30 @@ import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
 import { clsx } from "clsx";
 
-type RootProps = TouchableOpacityProps;
+import { Spinner } from "../ui/Spinner";
 
-export const Button = ({ className, ...props }: RootProps) => {
+type RootProps = TouchableOpacityProps & {
+  isLoading?: boolean;
+};
+
+export const Button = ({
+  className,
+  isLoading,
+  disabled,
+  children,
+  ...props
+}: RootProps) => {
   return (
     <TouchableOpacity
       {...props}
+      disabled={disabled || isLoading}
       className={clsx(
         "flex flex-row justify-center items-center border border-violet-500 font-semibold rounded-lg px-4 py-3",
+        { "opacity-30": disabled },
         className
       )}
-    />
+    >
+      {isLoading ? <Spinner /> : children}
+    </TouchableOpacity>
   );
 };

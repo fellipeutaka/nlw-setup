@@ -15,7 +15,7 @@ export function HabitGrid() {
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingBottom: 112 }}
+      contentContainerStyle={{ paddingBottom: 64 }}
     >
       <View className="flex-row w-full flex-wrap">
         {summaryDates.map((date) => (

@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -15,26 +16,29 @@ type CheckboxProps = TouchableOpacityProps & {
   checked?: boolean;
 };
 
-export function Checkbox({ title, checked = false, ...rest }: CheckboxProps) {
-  return (
-    <TouchableOpacity
-      activeOpacity={0.7}
-      className="flex-row mb-2 items-center"
-      {...rest}
-    >
-      <RenderIf condition={checked}>
-        <Animated.View
-          className="h-8 w-8 bg-green-500 rounded-lg items-center justify-center"
-          entering={ZoomIn}
-          exiting={ZoomOut}
-        >
-          <Check size={20} color="white" />
-        </Animated.View>
-      </RenderIf>
-      <RenderIf condition={!checked}>
-        <View className="h-8 w-8 bg-zinc-900 border-2 border-zinc-800 rounded-lg" />
-      </RenderIf>
-      <Text className="text-white text-base ml-3">{title}</Text>
-    </TouchableOpacity>
-  );
-}
+export const Checkbox = forwardRef<TouchableOpacity, CheckboxProps>(
+  ({ title, checked = false, ...rest }, ref) => {
+    return (
+      <TouchableOpacity
+        {...rest}
+        activeOpacity={0.7}
+        className="flex-row mb-2 items-center"
+        ref={ref}
+      >
+        <RenderIf condition={checked}>
+          <Animated.View
+            className="h-8 w-8 bg-green-500 rounded-lg items-center justify-center"
+            entering={ZoomIn}
+            exiting={ZoomOut}
+          >
+            <Check size={20} color="white" />
+          </Animated.View>
+        </RenderIf>
+        <RenderIf condition={!checked}>
+          <View className="h-8 w-8 bg-zinc-900 border-2 border-zinc-800 rounded-lg" />
+        </RenderIf>
+        <Text className="text-white text-base ml-3">{title}</Text>
+      </TouchableOpacity>
+    );
+  }
+);
