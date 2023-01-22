@@ -2,11 +2,10 @@ import { FormEvent } from "react";
 
 import { Check } from "phosphor-react";
 
+import { Button } from "@web/components/form/Button";
+import { Checkbox } from "@web/components/form/Checkbox";
+import * as TextField from "@web/components/form/TextField";
 import { weekDays } from "@web/constants/weekDays";
-
-import { Button } from "../form/Button";
-import { Checkbox } from "../form/Checkboxt";
-import * as TextField from "../form/TextField";
 
 export function NewHabitForm() {
   const handleCreateNewHabit = (e: FormEvent) => {
@@ -34,7 +33,10 @@ export function NewHabitForm() {
         <ul className="flex flex-col gap-2">
           {weekDays.map((weekDay) => (
             <li className="flex items-center gap-3" key={weekDay}>
-              <Checkbox id={weekDay} />
+              <Checkbox
+                id={weekDay}
+                className="focus-visible:ring-offset-zinc-900"
+              />
               <label htmlFor={weekDay}>{weekDay}</label>
             </li>
           ))}

@@ -28,10 +28,21 @@ module.exports = {
             transform: "translate(-50%, -50%) scale(1)",
           },
         },
+        popoverShow: {
+          from: {
+            opacity: 0,
+            transform: "scale(0.96)",
+          },
+          to: {
+            opacity: 1,
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         overlayShow: "overlayShow 150ms ease",
         contentShow: "contentShow 150ms ease",
+        popoverShow: "popoverShow 150ms ease",
       },
     },
   },

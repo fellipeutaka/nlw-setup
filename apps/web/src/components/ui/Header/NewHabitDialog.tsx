@@ -1,7 +1,8 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { Plus, X } from "phosphor-react";
 
-import { Button } from "../form/Button";
+import { Button } from "@web/components/form/Button";
+
 import { NewHabitForm } from "./NewHabitForm";
 
 export function NewHabitDialog() {
