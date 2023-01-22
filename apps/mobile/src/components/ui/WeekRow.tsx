@@ -1,10 +1,8 @@
 import { Text, View } from "react-native";
 
-import { getWeekDays } from "@mobile/utils/getWeekDays";
+import { weekDays } from "@mobile/constants/weekDays";
 
 import { DAY_SIZE } from "./HabitDay";
-
-const weekDays = getWeekDays();
 
 export function WeekRow() {
   return (

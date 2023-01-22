@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import {
   useFonts,
@@ -12,9 +13,10 @@ import {
   Inter_800ExtraBold,
   Inter_900Black,
 } from "@expo-google-fonts/inter";
+import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
-import { Home } from "@mobile/screens/Home";
+import { AppRoutes } from "@mobile/routes/app.routes";
 import { Loading } from "@mobile/screens/Loading";
 import { wait } from "@mobile/utils/wait";
 
@@ -38,9 +40,12 @@ export function App() {
     }
   }, [hasFontLoaded]);
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  return <Home />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: "black" }}>
+      <NavigationContainer>
+        <StatusBar style="light" backgroundColor="transparent" translucent />
+        {isLoading ? <Loading /> : <AppRoutes />}
+      </NavigationContainer>
+    </GestureHandlerRootView>
+  );
 }

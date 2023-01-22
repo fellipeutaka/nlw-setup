@@ -47,7 +47,7 @@ const downAnimation = {
 
 export function Loading() {
   return (
-    <View className="flex-1 justify-center items-center bg-black">
+    <View className="flex-1 justify-center items-center">
       <View className="flex-row gap-2.5 mb-8">
         <MotiView {...upAnimation}>
           <Square bgColor={zinc[900]} borderColor={zinc[800]} />
