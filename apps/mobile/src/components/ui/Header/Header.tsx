@@ -6,7 +6,7 @@ import { violet } from "tailwindcss/colors";
 import Logo from "@mobile/assets/logo.svg";
 import { useAppNavigation } from "@mobile/hooks/useAppNavigation";
 
-import { Button } from "../form/Button";
+import { Button } from "../../form/Button";
 
 export function Header() {
   const { navigate } = useAppNavigation();

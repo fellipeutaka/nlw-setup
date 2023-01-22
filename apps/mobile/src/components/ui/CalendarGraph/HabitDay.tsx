@@ -4,6 +4,8 @@ import {
   TouchableOpacityProps,
 } from "react-native";
 
+import { clsx } from "clsx";
+
 const WEEK_DAYS = 7;
 const SCREEN_HORIZONTAL_PADDING = (32 * 2) / 5;
 
@@ -13,10 +15,14 @@ export const DAY_SIZE =
 
 type HabitDayProps = TouchableOpacityProps & {};
 
-export function HabitDay(props: HabitDayProps) {
+export function HabitDay({ className, ...props }: HabitDayProps) {
   return (
     <TouchableOpacity
-      className="bg-zinc-900 border-2 border-zinc-800 rounded-lg m-1"
+      {...props}
+      className={clsx(
+        "bg-zinc-900 border-2 border-zinc-800 rounded-lg m-1",
+        className
+      )}
       style={{ width: DAY_SIZE, height: DAY_SIZE }}
     />
   );
