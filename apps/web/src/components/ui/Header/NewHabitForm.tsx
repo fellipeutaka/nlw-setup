@@ -23,6 +23,7 @@ export function NewHabitForm() {
         </label>
         <TextField.Root>
           <TextField.Input
+            type="text"
             id="title"
             placeholder="Exercise, sleep well, etc..."
           />
@@ -33,10 +34,7 @@ export function NewHabitForm() {
         <ul className="flex flex-col gap-2">
           {weekDays.map((weekDay) => (
             <li className="flex items-center gap-3" key={weekDay}>
-              <Checkbox
-                id={weekDay}
-                className="focus-visible:ring-offset-zinc-900"
-              />
+              <Checkbox id={weekDay} />
               <label htmlFor={weekDay}>{weekDay}</label>
             </li>
           ))}

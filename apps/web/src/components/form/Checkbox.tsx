@@ -9,7 +9,7 @@ export const Checkbox = ({
   <CheckboxPrimitive.Root
     {...props}
     className={twMerge(
-      "w-8 h-8 outline-none grid place-items-center rounded-lg bg-zinc-900 border-2 border-zinc-800 text-white data-[state=checked]:bg-green-500 data-[state=checked]:border-transparent focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2 transition",
+      "w-8 h-8 outline-none grid place-items-center rounded-lg bg-zinc-900 border-2 border-zinc-800 text-white data-[state=checked]:bg-green-500 data-[state=checked]:border-transparent focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 transition",
       className
     )}
   >
