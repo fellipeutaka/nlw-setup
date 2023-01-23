@@ -9,7 +9,7 @@ export function NewHabitDialog() {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button>
+        <Button className="focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
           <Plus size={20} weight="bold" />
           <span className="text-white">New habit</span>
         </Button>

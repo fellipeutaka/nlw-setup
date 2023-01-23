@@ -4,16 +4,9 @@ import * as Popover from "@radix-ui/react-popover";
 import { clsx } from "clsx";
 import dayjs from "dayjs";
 
-import { Checkbox } from "../../form/Checkbox";
+import { HabitsDayList } from "./HabitDayList";
 import { ProgressBar } from "./ProgressBar";
 
-const habits = [
-  { id: "aaa", title: "Drink 2 liters of water" },
-  { id: "bbb", title: "Exercise" },
-  { id: "ccc", title: "Healthy eating" },
-  { id: "ddd", title: "Plan next day" },
-  { id: "eee", title: "Sleep 8 hours" },
-];
 type HabitDayProps = {
   date: Date;
   defaultCompleted?: number;
@@ -33,7 +26,7 @@ export function HabitDay({
   const dayAndMonth = dayjs(date).format("DD/MM");
   const dayOfWeek = dayjs(date).format("dddd");
 
-  function handleCompletedChaged(completed: number) {
+  function handleCompletedChanged(completed: number) {
     setCompleted(completed);
   }
 
@@ -58,19 +51,15 @@ export function HabitDay({
       />
       <Popover.Portal>
         <Popover.Content className="min-w-[24rem] p-6 rounded-2xl bg-zinc-900 flex flex-col shadow animate-popoverShow">
-          <span className="text-zinc-400 font-semibold">tuesday</span>
-          <b className="text-3xl font-extrabold mt-2">03/01</b>
+          <span className="text-zinc-400 font-semibold lowercase">
+            {dayOfWeek}
+          </span>
+          <b className="text-3xl font-extrabold mt-2">{dayAndMonth}</b>
           <ProgressBar progress={completedPercentage} />
-          <ul className="flex flex-col gap-3 mt-6">
-            {habits.map((habit) => (
-              <li className="flex items-center gap-3" key={habit.id}>
-                <Checkbox id={habit.id} />
-                <label className="text-xl font-semibold" htmlFor={habit.id}>
-                  {habit.title}
-                </label>
-              </li>
-            ))}
-          </ul>
+          <HabitsDayList
+            date={date}
+            onCompletedChanged={handleCompletedChanged}
+          />
           <Popover.Arrow height={12} width={24} className="fill-zinc-900" />
         </Popover.Content>
       </Popover.Portal>

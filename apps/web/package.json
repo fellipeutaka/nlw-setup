@@ -16,6 +16,8 @@
     "@radix-ui/react-popover": "^1.0.3",
     "@radix-ui/react-progress": "^1.0.1",
     "@radix-ui/react-slot": "^1.0.1",
+    "@tanstack/react-query": "^4.22.4",
+    "axios-config": "workspace:*",
     "clsx": "^1.2.1",
     "next": "12.3.0",
     "phosphor-react": "^1.4.1",
