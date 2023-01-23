@@ -141,6 +141,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@hookform/resolvers': ^2.9.10
       '@radix-ui/react-checkbox': ^1.0.1
       '@radix-ui/react-dialog': ^1.0.2
       '@radix-ui/react-popover': ^1.0.3
@@ -165,10 +166,12 @@ importers:
       postcss: ^8.4.21
       react: 18.2.0
       react-dom: 18.2.0
+      react-hook-form: ^7.42.1
       tailwind-merge: ^1.8.1
       tailwindcss: ^3.2.4
       tsconfig: workspace:*
     dependencies:
+      '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
       '@radix-ui/react-checkbox': 1.0.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-dialog': 1.0.2_5ndqzdd6t4rivxsukjv3i3ak2q
       '@radix-ui/react-popover': 1.0.3_5ndqzdd6t4rivxsukjv3i3ak2q
@@ -181,6 +184,7 @@ importers:
       phosphor-react: 1.4.1_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-hook-form: 7.42.1_react@18.2.0
       tailwind-merge: 1.8.1
     devDependencies:
       '@testing-library/jest-dom': 5.16.5
@@ -2221,7 +2225,7 @@ packages:
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.42.1_react@18.1.0
+      react-hook-form: 7.42.1_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -10687,6 +10691,15 @@ packages:
       react: ^16.8.0 || ^17 || ^18
     dependencies:
       react: 18.1.0
+    dev: false
+
+  /react-hook-form/7.42.1_react@18.2.0:
+    resolution: {integrity: sha512-2UIGqwMZksd5HS55crTT1ATLTr0rAI4jS7yVuqTaoRVDhY2Qc4IyjskCmpnmdYqUNOYFy04vW253tb2JRVh+IQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:

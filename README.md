@@ -80,9 +80,12 @@ This project was developed with the following technologies:
 - [PostgreSQL][postgresql]
 - [React][react]
 - [Next.js][next]
-- [TailwindCSS][tailwind]
 - [React Native][rn]
 - [Expo][expo]
+- [React Query][react-query]
+- [React Hook Form][react-hook-form]
+- [TailwindCSS][tailwind]
+- [Zod][zod]
 
 ## 🔖 Layout
 
@@ -109,8 +112,11 @@ Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/
 [prisma]: https://www.prisma.io/
 [postgresql]: https://www.postgresql.org/
 [ts]: https://www.typescriptlang.org/
-[expo]: https://expo.dev/
 [react]: https://reactjs.org
+[react-query]: https://tanstack.com/query/latest
+[react-hook-form]: https://react-hook-form.com/
 [next]: https://nextjs.org/
-[tailwind]: https://tailwindcss.com/
 [rn]: https://reactnative.dev/
+[expo]: https://expo.dev/
+[tailwind]: https://tailwindcss.com/
+[zod]: https://zod.dev/

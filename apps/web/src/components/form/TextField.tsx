@@ -8,7 +8,7 @@ type RootProps = HTMLAttributes<HTMLDivElement>;
 export const Root = ({ className, ...props }: RootProps) => (
   <div
     className={twMerge(
-      "flex items-center gap-3 p-4 rounded-lg bg-zinc-800 border-2 border-zinc-700 focus-within:border-violet-600 transition",
+      "flex items-center gap-3 p-4 rounded-lg bg-zinc-800 border-2 border-zinc-700 focus-within:border-violet-600 aria-[invalid=true]:border-red-600 transition",
       className
     )}
     {...props}

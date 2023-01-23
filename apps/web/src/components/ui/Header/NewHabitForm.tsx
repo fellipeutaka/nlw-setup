@@ -1,45 +1,70 @@
-import { FormEvent, useState } from "react";
+import { useCallback } from "react";
+import { Controller, useForm } from "react-hook-form";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "axios-config";
 import { Check } from "phosphor-react";
+import { z } from "zod";
 
 import { Button } from "@web/components/form/Button";
 import { Checkbox } from "@web/components/form/Checkbox";
 import * as TextField from "@web/components/form/TextField";
 import { weekDays } from "@web/constants/weekDays";
+import { queryClient } from "@web/lib/reactQuery";
 import { handleScape } from "@web/utils/handleScape";
 
-export function NewHabitForm() {
-  const [title, setTitle] = useState("");
-  const [selectedWeekDays, setSelectedWeekDays] = useState<number[]>([]);
+const newHabitSchema = z.object({
+  title: z.string().trim().min(1, "Please, type your commitment"),
+  weekDays: z
+    .number()
+    .min(0)
+    .max(6)
+    .array()
+    .min(1, "Please, select one day of week at least")
+    .max(7),
+});
 
-  const handleCreateNewHabit = async (e: FormEvent) => {
-    e.preventDefault();
-    if (!title.trim() || selectedWeekDays.length === 0) {
-      return alert(
-        "Please, type your commitment and select one day of week at least"
-      );
-    }
+type FormData = z.output<typeof newHabitSchema>;
+
+type HandleToggleWeekDayProps = {
+  selectedWeekDays: number[];
+  weekDay: number;
+  onChange: (newValue: number[]) => void;
+};
+
+export function NewHabitForm() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isDirty, isSubmitting },
+  } = useForm<FormData>({
+    resolver: zodResolver(newHabitSchema),
+    defaultValues: {
+      title: "",
+      weekDays: [],
+    },
+  });
+
+  const handleCreateNewHabit = handleSubmit(async ({ title, weekDays }) => {
     await api.post("habits", {
       title,
-      weekDays: selectedWeekDays,
+      weekDays,
     });
-
+    await queryClient.invalidateQueries();
     handleScape();
+    alert("Habit created successfully!");
+  });
 
-    alert("Hábito criado com sucesso!");
-  };
-
-  function handleToggleWeekDay(weekDay: number) {
-    if (selectedWeekDays.includes(weekDay)) {
-      const weekDaysWithRemovedOne = selectedWeekDays.filter(
-        (day) => day !== weekDay
+  const handleToggleWeekDay = useCallback((props: HandleToggleWeekDayProps) => {
+    if (props.selectedWeekDays.includes(props.weekDay)) {
+      const weekDaysWithRemovedOne = props.selectedWeekDays.filter(
+        (day) => day !== props.weekDay
       );
-      setSelectedWeekDays(weekDaysWithRemovedOne);
+      props.onChange(weekDaysWithRemovedOne);
     } else {
-      setSelectedWeekDays((state) => [...state, weekDay]);
+      props.onChange([...props.selectedWeekDays, props.weekDay]);
     }
-  }
+  }, []);
 
   return (
     <form
@@ -50,35 +75,58 @@ export function NewHabitForm() {
         <label htmlFor="title" className="font-semibold">
           What's your commitment?
         </label>
-        <TextField.Root>
-          <TextField.Input
-            type="text"
-            id="title"
-            placeholder="Exercise, sleep well, etc..."
-            autoComplete="off"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </TextField.Root>
+        <Controller
+          control={control}
+          name="title"
+          render={({ field, fieldState: { invalid } }) => (
+            <TextField.Root aria-invalid={invalid}>
+              <TextField.Input
+                {...field}
+                type="text"
+                id="title"
+                placeholder="Exercise, sleep well, etc..."
+                autoComplete="off"
+              />
+            </TextField.Root>
+          )}
+        />
+        <span className="text-red-600 -mt-2 mb-2">{errors.title?.message}</span>
       </fieldset>
       <fieldset className="flex flex-col gap-3">
         <label className="font-semibold">What's the recurrence?</label>
         <ul className="flex flex-col gap-2">
           {weekDays.map((weekDay, index) => (
             <li className="flex items-center gap-3" key={weekDay}>
-              <Checkbox
-                id={weekDay}
-                checked={selectedWeekDays.includes(index)}
-                onCheckedChange={() => handleToggleWeekDay(index)}
+              <Controller
+                name="weekDays"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Checkbox
+                    checked={value.includes(index)}
+                    onCheckedChange={() =>
+                      handleToggleWeekDay({
+                        weekDay: index,
+                        selectedWeekDays: value,
+                        onChange,
+                      })
+                    }
+                    id={weekDay}
+                  />
+                )}
               />
               <label htmlFor={weekDay}>{weekDay}</label>
             </li>
           ))}
         </ul>
+        <span className="text-red-600 -mt-2 mb-2">
+          {errors.weekDays?.message}
+        </span>
       </fieldset>
       <Button
         type="submit"
         className="bg-green-600 text-white border-none w-full hover:bg-green-500 focus-visible:bg-green-500 mt-2"
+        disabled={!isDirty}
+        isLoading={isSubmitting}
       >
         <Check size={20} weight="bold" />
         <span>Confirm</span>
