@@ -20,6 +20,8 @@ import { AppRoutes } from "@mobile/routes/app.routes";
 import { Loading } from "@mobile/screens/Loading";
 import { wait } from "@mobile/utils/wait";
 
+import { ReactQueryProvider } from "./lib/reactQuery";
+
 export function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasFontLoaded] = useFonts({
@@ -42,10 +44,12 @@ export function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: "black" }}>
-      <NavigationContainer>
-        <StatusBar style="light" backgroundColor="transparent" translucent />
-        {isLoading ? <Loading /> : <AppRoutes />}
-      </NavigationContainer>
+      <ReactQueryProvider>
+        <NavigationContainer>
+          <StatusBar style="light" backgroundColor="transparent" translucent />
+          {isLoading ? <Loading /> : <AppRoutes />}
+        </NavigationContainer>
+      </ReactQueryProvider>
     </GestureHandlerRootView>
   );
 }

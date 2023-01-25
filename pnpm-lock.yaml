@@ -42,8 +42,10 @@ importers:
       '@babel/core': ^7.12.9
       '@expo-google-fonts/inter': ^0.2.2
       '@hookform/resolvers': ^2.9.10
+      '@react-native-community/netinfo': 9.3.5
       '@react-navigation/native': ^6.1.2
       '@react-navigation/native-stack': ^6.9.8
+      '@tanstack/react-query': ^4.22.4
       '@testing-library/jest-native': ^5.4.1
       '@testing-library/react-native': ^11.5.0
       '@types/react': ~18.0.14
@@ -77,8 +79,10 @@ importers:
     dependencies:
       '@expo-google-fonts/inter': 0.2.2
       '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
+      '@react-native-community/netinfo': 9.3.5_react-native@0.70.5
       '@react-navigation/native': 6.1.2_tj3nonr5gneraukzjkxpsiy7yu
       '@react-navigation/native-stack': 6.9.8_4yxn5o6hbqm4eqjpnbll7jojyu
+      '@tanstack/react-query': 4.22.4_2bkajway7msrchxwrvhplxy5ru
       axios-config: link:../../packages/axios-config
       clsx: 1.2.1
       expo: 47.0.13_@babel+core@7.20.12
@@ -2225,7 +2229,7 @@ packages:
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.42.1_react@18.2.0
+      react-hook-form: 7.42.1_react@18.1.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -3315,6 +3319,14 @@ packages:
       - supports-color
       - utf-8-validate
 
+  /@react-native-community/netinfo/9.3.5_react-native@0.70.5:
+    resolution: {integrity: sha512-Mqbh/J8YCfc+EqSjq5OJn2USmcD8On4048pKEfyCsCDty3lQs1SNcmHqJdu9idNU2v//aM73T8F+re59cf78Ig==}
+    peerDependencies:
+      react-native: '>=0.59'
+    dependencies:
+      react-native: 0.70.5_7vw2fevm7cxfkwynop5qx4c5l4
+    dev: false
+
   /@react-native/assets/1.0.0:
     resolution: {integrity: sha512-KrwSpS1tKI70wuKl68DwJZYEvXktDHdZMG0k2AXD/rJVSlB23/X2CB2cutVR0HwNMJIal9HOUOBB2rVfa6UGtQ==}
 
@@ -3572,6 +3584,25 @@ packages:
 
   /@tanstack/query-core/4.22.4:
     resolution: {integrity: sha512-t79CMwlbBnj+yL82tEcmRN93bL4U3pae2ota4t5NN2z3cIeWw74pzdWrKRwOfTvLcd+b30tC+ciDlfYOKFPGUw==}
+    dev: false
+
+  /@tanstack/react-query/4.22.4_2bkajway7msrchxwrvhplxy5ru:
+    resolution: {integrity: sha512-e5j5Z88XUQGeEPMyz5XF1V0mMf6Da+6URXiTpZfUb9nuHs2nlNoA+EoIvnhccE5b9YT6Yg7kARhn2L7u94M/4A==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@tanstack/query-core': 4.22.4
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-native: 0.70.5_7vw2fevm7cxfkwynop5qx4c5l4
+      use-sync-external-store: 1.2.0_react@18.1.0
     dev: false
 
   /@tanstack/react-query/4.22.4_biqbaboplfbrettd7655fr4n2y:

@@ -1,4 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import NetInfo from "@react-native-community/netinfo";
+import {
+  QueryClient,
+  QueryClientProvider,
+  onlineManager,
+} from "@tanstack/react-query";
 import { api } from "axios-config";
 
 export const queryClient = new QueryClient({
@@ -11,6 +16,12 @@ export const queryClient = new QueryClient({
       staleTime: 5 * 1000, // 5 seconds
     },
   },
+});
+
+onlineManager.setEventListener((setOnline) => {
+  return NetInfo.addEventListener((state) => {
+    setOnline(!!state.isConnected);
+  });
 });
 
 type ReactQueryProviderProps = {

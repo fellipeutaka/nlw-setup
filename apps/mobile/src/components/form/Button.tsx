@@ -21,11 +21,11 @@ export const Button = ({
       disabled={disabled || isLoading}
       className={clsx(
         "flex flex-row justify-center items-center border border-violet-500 font-semibold rounded-lg px-4 py-3",
-        { "opacity-30": disabled },
+        { "opacity-30": disabled || isLoading },
         className
       )}
     >
-      {isLoading ? <Spinner /> : children}
+      {isLoading ? <Spinner color="white" /> : children}
     </TouchableOpacity>
   );
 };

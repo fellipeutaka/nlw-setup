@@ -6,7 +6,7 @@ import { DAY_SIZE } from "./HabitDay";
 
 export function WeekRow() {
   return (
-    <View className="flex-row mt-6 mb-2">
+    <View className="flex-row mt-6 mb-3">
       {weekDays.map((weekDay) => (
         <Text
           key={weekDay}
