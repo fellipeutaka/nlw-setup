@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "prisma generate",
     "dev": "tsx watch src/server.ts",
-    "build": "prisma generate && tsup src/server.ts --minify --target esnext",
+    "build": "tsup src --minify --target esnext",
     "start": "node dist/server.js",
     "format": "prettier --write \"**/*.{json,ts}\"",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
