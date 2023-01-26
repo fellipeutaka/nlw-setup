@@ -58,6 +58,7 @@ importers:
       eslint-config-custom: workspace:*
       expo: ~47.0.12
       expo-font: ~11.0.1
+      expo-linear-gradient: ~12.0.1
       expo-status-bar: ~1.4.2
       moti: ^0.21.0
       nativewind: ^2.0.11
@@ -87,6 +88,7 @@ importers:
       clsx: 1.2.1
       expo: 47.0.13_@babel+core@7.20.12
       expo-font: 11.0.1_expo@47.0.13
+      expo-linear-gradient: 12.0.1_expo@47.0.13
       expo-status-bar: 1.4.2
       moti: 0.21.0_ud7f2lmrqdqtnk35idy5n2spl4
       nativewind: 2.0.11_f3xea42f6zrwqyr5c6mbkdauxa
@@ -6615,6 +6617,14 @@ packages:
 
   /expo-keep-awake/11.0.1_expo@47.0.13:
     resolution: {integrity: sha512-44ZjgLE4lnce2d40Pv8xsjMVc6R5GvgHOwZfkLYtGmgYG9TYrEJeEj5UfSeweXPL3pBFhXKfFU8xpGYMaHdP0A==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 47.0.13_@babel+core@7.20.12
+    dev: false
+
+  /expo-linear-gradient/12.0.1_expo@47.0.13:
+    resolution: {integrity: sha512-TMl/wBTVQOliL4S3DS5Aa3UFfVySr0mdJEHLG6kfBdMCLkr+tfLI2rGyJ+scS7xgMsvhTIaurhf1+Z0sL3aLCg==}
     peerDependencies:
       expo: '*'
     dependencies:

@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
@@ -11,6 +11,7 @@ import { generateDatesFromYearBeginning } from "@mobile/utils/generateDatesFromY
 import { RenderIf } from "../../utils/RenderIf";
 import { HabitDay } from "./HabitDay";
 import { PlaceholderDays } from "./PlaceholderDays";
+import { SkeletonHabitDay } from "./SkeletonHabitDay";
 
 const summaryDates = generateDatesFromYearBeginning();
 
@@ -24,12 +25,27 @@ export function HabitGrid() {
   ]);
   useRefetchOnFocus(refetch);
 
+  if (error) {
+    return (
+      <View className="flex-1 justify-center items-center w-full flex-row">
+        <Text className="text-xl font-semibold text-white">
+          An error has occurred! Try again later
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 64 }}
     >
       <View className="flex-row w-full flex-wrap">
+        <RenderIf condition={isLoading}>
+          {summaryDates.map((date) => (
+            <SkeletonHabitDay key={date.toString()} />
+          ))}
+        </RenderIf>
         <RenderIf condition={!isLoading && !error}>
           {summaryDates.map((date) => {
             const dayInSummary = data?.summary?.find((day) =>
