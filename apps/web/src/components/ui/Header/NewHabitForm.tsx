@@ -48,16 +48,24 @@ export function NewHabitForm() {
   const toast = useToast();
 
   const handleCreateNewHabit = handleSubmit(async ({ title, weekDays }) => {
-    await api.post("habits", {
-      title,
-      weekDays,
-    });
-    await queryClient.invalidateQueries();
-    handleScape();
-    toast.show({
-      message: "Habit created successfully!",
-      type: "success",
-    });
+    try {
+      await api.post("habits", {
+        title,
+        weekDays,
+      });
+      await queryClient.invalidateQueries();
+      handleScape();
+      toast.show({
+        message: "Habit created successfully!",
+        type: "success",
+      });
+    } catch (err) {
+      toast.show({
+        message:
+          "An error has occurred while trying to create your habit. Try again later!",
+        type: "error",
+      });
+    }
   });
 
   const handleToggleWeekDay = useCallback((props: HandleToggleWeekDayProps) => {

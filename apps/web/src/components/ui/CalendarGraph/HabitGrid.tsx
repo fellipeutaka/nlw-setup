@@ -23,7 +23,7 @@ export function HabitGrid() {
     return (
       <div className="grid place-items-center w-full">
         <span className="text-xl font-semibold">
-          An error has occurred! Try again later
+          An error has occurred. Try again later!
         </span>
       </div>
     );
