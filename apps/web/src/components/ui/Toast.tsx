@@ -45,7 +45,7 @@ export const Toast = forwardRef<ToastHandles, ToastProps>(
         open={isVisible}
         onOpenChange={setIsVisible}
         className={clsx(
-          "bg-zinc-900 relative rounded-md py-4 pl-4 pr-16 gap-4 flex items-center",
+          "bg-zinc-900 relative rounded-md py-4 pl-4 pr-16 max-w-sm gap-4 flex items-center",
           "border-l-8",
           { "border-l-green-500": status === "success" },
           { "border-l-red-500": status === "error" },
@@ -69,7 +69,7 @@ export const Toast = forwardRef<ToastHandles, ToastProps>(
             weight="bold"
           />
         </RenderIf>
-        <div>
+        <div className="flex-1">
           <ToastPrimitive.Title className="font-bold">
             {capitalizeFirstLetter(status)}
           </ToastPrimitive.Title>
