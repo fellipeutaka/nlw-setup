@@ -1,5 +1,7 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { api } from "axios-config";
+import MockAdapter from "axios-mock-adapter";
 
 import { weekDays } from "@web/constants/weekDays";
 
@@ -30,6 +32,12 @@ const elements = {
   submitButton: "Confirm",
 };
 
+const mock = new MockAdapter(api);
+
+mock.onPost("/habits").reply(201);
+
+jest.spyOn(window, "alert").mockImplementation(() => {});
+
 describe("<NewHabitForm />", () => {
   it("should not be able to create a habit without title", async () => {
     const { getByText, findByText } = render(<NewHabitForm />);
@@ -53,5 +61,16 @@ describe("<NewHabitForm />", () => {
       elements.weekDaysErrorSpan.required
     );
     expect(weekDaysErrorSpan).toBeVisible();
+  });
+
+  it("should be able to create a habit", async () => {
+    const { getByPlaceholderText, getByText } = render(<NewHabitForm />);
+    const titleInput = getByPlaceholderText(elements.titleInput);
+    await userEvent.type(titleInput, "Sleep 8 hours");
+    const sundayLabel = getByText(elements.weekDays[0]);
+    await userEvent.click(sundayLabel);
+    const submitButton = getByText(elements.submitButton);
+    await userEvent.click(submitButton);
+    expect(window.alert).toHaveBeenCalledWith("Habit created successfully!");
   });
 });
