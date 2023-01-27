@@ -52,6 +52,7 @@ importers:
       '@types/react-native': ~0.70.6
       '@types/react-test-renderer': ^18.0.0
       axios-config: workspace:*
+      axios-mock-adapter: ^1.21.2
       babel-plugin-inline-dotenv: ^1.7.0
       babel-plugin-root-import: ^6.6.0
       clsx: ^1.2.1
@@ -110,6 +111,7 @@ importers:
       '@types/react': 18.0.27
       '@types/react-native': 0.70.9
       '@types/react-test-renderer': 18.0.0
+      axios-mock-adapter: 1.21.2
       babel-plugin-inline-dotenv: 1.7.0
       babel-plugin-root-import: 6.6.0
       eslint-config-custom: link:../../packages/eslint-config-custom
@@ -2235,7 +2237,7 @@ packages:
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.42.1_react@18.2.0
+      react-hook-form: 7.42.1_react@18.1.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:

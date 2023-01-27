@@ -50,13 +50,20 @@ export function New() {
   const { goBack } = useNavigation();
 
   const handleCreateNewHabit = handleSubmit(async ({ title, weekDays }) => {
-    await api.post("habits", {
-      title,
-      weekDays,
-    });
-    await queryClient.invalidateQueries();
-    goBack();
-    Alert.alert("New habit", "Habit created successfully!");
+    try {
+      await api.post("habits", {
+        title,
+        weekDays,
+      });
+      await queryClient.invalidateQueries();
+      Alert.alert("New habit", "Habit created successfully!");
+      goBack();
+    } catch (err) {
+      Alert.alert(
+        "New habit",
+        "An error has occurred while trying to create your habit. Try again later!"
+      );
+    }
   });
 
   const handleToggleWeekDay = useCallback((props: HandleToggleWeekDayProps) => {

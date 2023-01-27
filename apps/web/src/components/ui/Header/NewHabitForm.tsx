@@ -54,11 +54,11 @@ export function NewHabitForm() {
         weekDays,
       });
       await queryClient.invalidateQueries();
-      handleScape();
       toast.show({
         message: "Habit created successfully!",
         type: "success",
       });
+      handleScape();
     } catch (err) {
       toast.show({
         message:

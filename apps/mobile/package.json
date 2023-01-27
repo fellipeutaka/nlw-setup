@@ -49,6 +49,7 @@
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
     "@types/react-test-renderer": "^18.0.0",
+    "axios-mock-adapter": "^1.21.2",
     "babel-plugin-inline-dotenv": "^1.7.0",
     "babel-plugin-root-import": "^6.6.0",
     "eslint-config-custom": "workspace:*",
