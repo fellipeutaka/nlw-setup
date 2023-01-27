@@ -47,7 +47,7 @@
   <a href="#rocket-Technologies">Technologies</a> |
   <a href="#-layout">Layout</a> | <a href="#-how-to-use">How to use</a> |
   <a href="#-how-to-contribute">How to contribute</a> |
-  <a href="#memo-license">License</a> |
+  <a href="#-license">License</a> |
   <a href="https://fellipeutaka-nlwsetup.vercel.app/">Live demo</a>
 </p>
 
@@ -101,7 +101,7 @@ To access the layout use [Figma][figma].
 
 ## 📝 License
 
-This project is under the MIT license. See the [LICENSE](https://github.com/fellipeutaka/nlw-setup/blob/main/LICENSE) for details.
+This project is under the MIT license. See the [LICENSE](https://github.com/fellipeutaka/nlw-setup/blob/main/LICENSE.md) for details.
 
 Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/fellipeutaka/)
 
