@@ -4,6 +4,7 @@ import { api } from "axios-config";
 import MockAdapter from "axios-mock-adapter";
 
 import { weekDays } from "@web/constants/weekDays";
+import { ToastProvider } from "@web/contexts/ToastContext";
 
 import { NewHabitForm } from "./NewHabitForm";
 
@@ -30,13 +31,12 @@ const elements = {
     required: "Please, select one day of week at least",
   },
   submitButton: "Confirm",
+  successToastMessage: "Habit created successfully!",
 };
 
 const mock = new MockAdapter(api);
 
 mock.onPost("/habits").reply(201);
-
-jest.spyOn(window, "alert").mockImplementation(() => {});
 
 describe("<NewHabitForm />", () => {
   it("should not be able to create a habit without title", async () => {
@@ -64,13 +64,18 @@ describe("<NewHabitForm />", () => {
   });
 
   it("should be able to create a habit", async () => {
-    const { getByPlaceholderText, getByText } = render(<NewHabitForm />);
+    const { getByPlaceholderText, getByText, findByText } = render(
+      <ToastProvider>
+        <NewHabitForm />
+      </ToastProvider>
+    );
     const titleInput = getByPlaceholderText(elements.titleInput);
     await userEvent.type(titleInput, "Sleep 8 hours");
     const sundayLabel = getByText(elements.weekDays[0]);
     await userEvent.click(sundayLabel);
     const submitButton = getByText(elements.submitButton);
     await userEvent.click(submitButton);
-    expect(window.alert).toHaveBeenCalledWith("Habit created successfully!");
+    const successToastMessage = await findByText(elements.successToastMessage);
+    expect(successToastMessage).toBeVisible();
   });
 });

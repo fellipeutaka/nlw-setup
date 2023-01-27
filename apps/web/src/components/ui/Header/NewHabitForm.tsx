@@ -10,6 +10,7 @@ import { Button } from "@web/components/form/Button";
 import { Checkbox } from "@web/components/form/Checkbox";
 import * as TextField from "@web/components/form/TextField";
 import { weekDays } from "@web/constants/weekDays";
+import { useToast } from "@web/hooks/useToast";
 import { queryClient } from "@web/lib/reactQuery";
 import { handleScape } from "@web/utils/handleScape";
 
@@ -44,6 +45,7 @@ export function NewHabitForm() {
       weekDays: [],
     },
   });
+  const toast = useToast();
 
   const handleCreateNewHabit = handleSubmit(async ({ title, weekDays }) => {
     await api.post("habits", {
@@ -52,7 +54,10 @@ export function NewHabitForm() {
     });
     await queryClient.invalidateQueries();
     handleScape();
-    alert("Habit created successfully!");
+    toast.show({
+      message: "Habit created successfully!",
+      type: "success",
+    });
   });
 
   const handleToggleWeekDay = useCallback((props: HandleToggleWeekDayProps) => {
