@@ -7,7 +7,7 @@
   />
 </h1>
 
-<h4 align="center">⌛ Next Level Week Setup ✅🚀 In progress! ⌛</h4>
+<h1 align="center">Next Level Week Setup</h4>
 <p align="center">
   <img
     alt="Repository size"
